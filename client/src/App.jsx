@@ -7,6 +7,7 @@ function App() {
 
   return (
     <>
+   
     {page === "recipelist" && <RecipeList onChangePage={setPage} onChooseRecipe={setRecipeUrl}/> }
     {/* {page === "recipe" && <Recipe /> }
     {page === "shop" && <Shop /> } */}
