@@ -44,11 +44,11 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
 
   async function handleClick (data) {
     const recipe = {fav: data.recipe.label}
-   await fetch("api/favourites", {
+  await fetch("api/favourites", {
     method:"POST",
     headers: {"content-type":"application/json"},
     body: JSON.stringify(recipe),
-   })
+  })
     console.log(data)
   }
 
@@ -81,8 +81,11 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
               <tr>
                 <td>{`${Math.ceil(recipe.recipe.calories)} kcal`}</td>
               </tr>
+              <tr>
                 <td>{`${recipe.recipe.mealType}`}</td>
-              <button onClick={()=>handleClick(recipe)} >Add to favourites</button>
+              </tr>
+                
+              <button onClick={()=>handleClick(recipe)} >❤️</button>
             </tbody>
           </table>
         ))}
