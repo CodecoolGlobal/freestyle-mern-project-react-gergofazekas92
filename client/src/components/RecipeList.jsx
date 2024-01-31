@@ -36,8 +36,9 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
     task()
   }, []);
 
-  function handleChoose(){
-
+  function handleChoose(uri){
+    console.log(uri);
+    onChooseRecipe(uri);
     onChangePage("recipe");
   }
 
@@ -53,10 +54,11 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
 
   return (
     <>
-    <div>
-      <nav>
-        <input type="text" value={input} onChange={(e) => setInput(e.target.value)}/>
-        <button onClick={handleSearchClick}>🔎</button>
+    <div className="main">
+      <div>
+      <nav className="nav">
+        <input className="searchbar" type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="search ingredients..."/>
+        <button className="searchbutton" onClick={handleSearchClick}>🔎</button>
       </nav>
     </div>
     
@@ -68,7 +70,7 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
             <thead>
               <tr>
               <th >
-                <img src={`${recipe.recipe.images.SMALL.url}`} onClick={handleChoose}></img>
+                <img src={`${recipe.recipe.images.SMALL.url}`} onClick={() => handleChoose(recipe.recipe.uri)}></img>
               </th>
               </tr>
             </thead>
@@ -85,6 +87,8 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
           </table>
         ))}
     </div>
+    </div>
+    
     </>
   )
 }
