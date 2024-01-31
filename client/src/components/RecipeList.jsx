@@ -41,6 +41,10 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
     onChangePage("recipe");
   }
 
+  function handleClick (data) {
+    console.log(data)
+  }
+
   return (
     <>
     <div>
@@ -70,6 +74,7 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
                 <td>{`${Math.ceil(recipe.recipe.calories)} kcal`}</td>
                 <td>{`${recipe.recipe.mealType}`}</td>
               </tr>
+              <button onClick={()=>handleClick(recipe)} >Add to favourites</button>
             </tbody>
           </table>
         ))}
