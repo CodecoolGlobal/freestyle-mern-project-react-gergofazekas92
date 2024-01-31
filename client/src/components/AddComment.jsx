@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 
-// mongodb+srv://konkolygergo:Wq9d3YoieOgGUxx8@cluster0.tcfrltf.mongodb.net/
-
 function AddComment() {
   const [name, setName] = useState('')
   const [review, setReview] = useState('')
@@ -14,7 +12,7 @@ function AddComment() {
       review,
       rating,
     }
-    fetch('/api', {
+    await fetch('/api/reviews', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
@@ -32,8 +30,10 @@ function AddComment() {
   }
 
   const handleRatingChange = (value) => {
-    if(value > 5){
+    if (value > 5) {
       value = 5
+    } else if (value < 1) {
+      value = 1
     }
     setRating(value)
     console.log(value)

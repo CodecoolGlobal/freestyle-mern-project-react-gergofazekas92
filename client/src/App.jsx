@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import RecipeList from './components/RecipeList'
+import ListComments from './components/ListComments';
 
 function App() {
   const [page, setPage] = useState("recipelist");
@@ -7,16 +8,7 @@ function App() {
 
   return (
     <>
-    <header>
-      <div className='logo'>
-        <div className='foodlogo'>Food</div>
-        <div className='hublogo'>hub</div>
-      </div>
-      
-    </header>
-    {page === "recipelist" && <RecipeList onChangePage={setPage} onChooseRecipe={setRecipeUrl}/> }
-    {/* {page === "recipe" && <Recipe /> }
-    {page === "shop" && <Shop /> } */}
+      <ListComments/>
     </>
   )
 }

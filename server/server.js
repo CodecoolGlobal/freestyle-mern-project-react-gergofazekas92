@@ -7,7 +7,12 @@ mongoose.connect('mongodb+srv://konkolygergo:Wq9d3YoieOgGUxx8@cluster0.tcfrltf.m
 const app = express()
 app.use(express.json())
 
-app.post('/api', (req, res) => {
+app.get('/api/reviews', async (req, res) => {
+  const reviews = await Review.find()
+  res.send(reviews)
+})
+
+app.post('/api/reviews', (req, res) => {
   const name = req.body.name
   const comment = req.body.review
   const rating = req.body.rating
