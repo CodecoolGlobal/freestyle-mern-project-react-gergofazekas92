@@ -10,7 +10,7 @@ body {
 }
 
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -86,4 +86,20 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+}
+
+table{
+  text-align: center;
+  max-width: 200px;
+  max-height: auto;
+  border: 5px solid;
+  border-radius: 10px;
+}
+
+table:hover{
+  border-color: orange;
+}
+
+th img {
+  border-radius: 5px;
 }

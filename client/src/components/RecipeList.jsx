@@ -70,8 +70,8 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
               </tr>
               <tr>
                 <td>{`${Math.ceil(recipe.recipe.calories)} kcal`}</td>
-                <td>{`${recipe.recipe.mealType}`}</td>
               </tr>
+                <td>{`${recipe.recipe.mealType}`}</td>
             </tbody>
           </table>
         ))}
