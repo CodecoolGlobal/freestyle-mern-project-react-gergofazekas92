@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import './App.css'
+import DisplayRecipe from './components/recipePage/DisplayRecipe'
 import RecipeList from './components/RecipeList'
 
 function App() {
@@ -14,8 +16,8 @@ function App() {
       </div>
     </header>
     {page === "recipelist" && <RecipeList onChangePage={setPage} onChooseRecipe={setRecipeUrl}/> }
-    {/* {page === "recipe" && <Recipe /> }
-    {page === "shop" && <Shop /> } */}
+    {page === "recipe" && <DisplayRecipe /> }
+    {/* {page === "shop" && <Shop /> } */}
     </>
   )
 }
