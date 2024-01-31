@@ -42,6 +42,16 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
     onChangePage("recipe");
   }
 
+  async function handleClick (data) {
+    const recipe = {fav: data.recipe.label}
+   await fetch("api/favourites", {
+    method:"POST",
+    headers: {"content-type":"application/json"},
+    body: JSON.stringify(recipe),
+   })
+    console.log(data)
+  }
+
   return (
     <>
     <div className="main">
@@ -72,6 +82,7 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
                 <td>{`${Math.ceil(recipe.recipe.calories)} kcal`}</td>
               </tr>
                 <td>{`${recipe.recipe.mealType}`}</td>
+              <button onClick={()=>handleClick(recipe)} >Add to favourites</button>
             </tbody>
           </table>
         ))}
