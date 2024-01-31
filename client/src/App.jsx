@@ -12,7 +12,6 @@ function App() {
         <div className='foodlogo'>Food</div>
         <div className='hublogo'>hub</div>
       </div>
-      
     </header>
     {page === "recipelist" && <RecipeList onChangePage={setPage} onChooseRecipe={setRecipeUrl}/> }
     {/* {page === "recipe" && <Recipe /> }
