@@ -1,12 +1,24 @@
 import { useState } from 'react'
 import './App.css'
 import DisplayRecipe from './components/recipePage/DisplayRecipe'
+import RecipeList from './components/RecipeList'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [page, setPage] = useState("recipelist");
+  const [recipeUrl, setRecipeUrl] = useState("")
 
   return (
-    <DisplayRecipe/>
+    <>
+    <header>
+      <div className='logo'>
+        <div className='foodlogo'>Food</div>
+        <div className='hublogo'>hub</div>
+      </div>
+    </header>
+    {page === "recipelist" && <RecipeList onChangePage={setPage} onChooseRecipe={setRecipeUrl}/> }
+    {page === "recipe" && <DisplayRecipe /> }
+    {/* {page === "shop" && <Shop /> } */}
+    </>
   )
 }
 
