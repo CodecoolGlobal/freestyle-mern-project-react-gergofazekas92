@@ -17,12 +17,48 @@ app.post('/api', (req, res) => {
   review.save()
 })
 
-app.post('/api/favourites', (req,res) => {
+app.get("/api/favourites", async (req, res) => {
+  try {
+    const favourites = await Favourite.find();
+    res.json(favourites)
+  } catch (error) {
+    console.error("Error fetching favourites", error)
+  }
+});
+
+app.post('/api/favourites', (req, res) => {
   const name = req.body.fav
-  const createdAt =Date.now();
-  const favourite = new Favourite({name,createdAt})
+  const createdAt = Date.now();
+  const favourite = new Favourite({ name, createdAt })
   favourite.save();
 })
+
+app.put('/api/favourites/:id', async (req, res) => {
+  const favId = req.params.id;
+  const updatedName = req.body.name;
+  try {
+    const updatedFav = await Favourite.findByIdAndUpdate(
+      favId,
+      { name: updatedName },
+      { new: true }
+    );
+    if (!updatedFav) {
+      return res.status(404).json({ error: "Favourite not found" });
+    }
+    res.json(updatedFav);
+  } catch (error) {
+    console.error("Error updating favourite", error);
+  }
+});
+
+app.delete('/api/favourites/:id', async (req, res) => {
+  try {
+    const favId = req.params.id;
+    await Favourite.deleteOne({ _id: favId })
+  } catch (error) {
+    console.error("Error deleting favourites", error)
+  }
+});
 
 
 
