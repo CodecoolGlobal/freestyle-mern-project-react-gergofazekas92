@@ -1,79 +1,78 @@
 import React, { useEffect, useState } from 'react'
 
 function Favourites() {
-const [recipes,setRecipes] = useState()
-const [editedName,setEditedName] = useState()
+  const [recipes, setRecipes] = useState()
+  const [editedName, setEditedName] = useState()
 
 
 
-useEffect (() => {
-const fetchRecipes = async () => {
-  try {
-    const response = await fetch ("api/favourites")
-    const data = await response.json();
-    console.log(data);
-    setRecipes(data);
-   } catch (error) {
-      console.error("Error fetching recipes", error)
-    } 
-  }; fetchRecipes();
-}, []);
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await fetch("api/favourites")
+        const data = await response.json();
+        console.log(data);
+        setRecipes(data);
+      } catch (error) {
+        console.error("Error fetching recipes", error)
+      }
+    }; fetchRecipes();
+  }, []);
 
-// const handleUpdate = async (id) => {
-//   try {
-//     await fetch(`api/favourites/${id}`, {
-//     method:"PUT",
-//     headers: {"Content-Type": "application/json",},
-//     body: JSON.stringify({ name: editedName }),
-//   })
-//   } catch (error) {
-    
-//   }
+  // const handleUpdate = async (id) => {
+  //   try {
+  //     await fetch(`api/favourites/${id}`, {
+  //     method:"PUT",
+  //     headers: {"Content-Type": "application/json",},
+  //     body: JSON.stringify({ name: editedName }),
+  //   })
+  //   } catch (error) {
 
-// }
+  //   }
 
-const handleDelete = async (id) => {
-  try {
-     await fetch(`api/favourites/${id}`, {
-      method:"DELETE",
-    });
-    const updatedRecipes = recipes.filter((recipe) => recipe._id !== id);
-    setRecipes(updatedRecipes);
-  } catch (error) {
-    console.error("Error deleting favourite recipe",error)
+  // }
+
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`api/favourites/${id}`, {
+        method: "DELETE",
+      });
+      const updatedRecipes = recipes.filter((recipe) => recipe._id !== id);
+      setRecipes(updatedRecipes);
+    } catch (error) {
+      console.error("Error deleting favourite recipe", error)
+    }
   }
-}
 
 
   return (
-    <div>
-       <h1>Favourites</h1>
-   
-    <div className='recipelist'>
-    {recipes && recipes.map((recipe) => (
-      <table key={recipe._id}>
-      <thead>
-        <tr>
-        <th >
-          <img src={`${recipe.img}`} ></img>
-        </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>{`${recipe.name}`}</th>
-        </tr>
-        <tr>
-          <td>{`${Math.ceil(recipe.cal)} kcal`}</td>
-        </tr>
-        <tr>
-          <td>{`${recipe.type}`}</td>
-        </tr>
-        <button onClick={()=>handleDelete(recipe._id)}>Delete</button>
-        </tbody>
+    <div className="main">
+      
+      <div className='recipelist'>
+        {recipes && recipes.map((recipe) => (
+          <table key={recipe._id}>
+            <thead>
+              <tr>
+                <th >
+                  <img src={`${recipe.img}`} ></img>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>{`${recipe.name}`}</th>
+              </tr>
+              <tr>
+                <td>{`${Math.ceil(recipe.cal)} kcal`}</td>
+              </tr>
+              <tr>
+                <td>{`${recipe.type}`}</td>
+              </tr>
+              <button onClick={() => handleDelete(recipe._id)}>Delete</button>
+            </tbody>
           </table>
-    ))}
-     </div>
+        ))}
+      </div>
     </div>
   )
 
