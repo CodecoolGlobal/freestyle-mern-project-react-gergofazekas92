@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import Review from './models/Review.js'
+import Favourite from './models/Favourite.js'
 
 mongoose.connect('mongodb+srv://konkolygergo:Wq9d3YoieOgGUxx8@cluster0.tcfrltf.mongodb.net/')
 
@@ -20,6 +21,14 @@ app.post('/api/reviews', (req, res) => {
   const review = new Review({ name, comment, rating, createdAt })
   review.save()
 })
+
+app.post('/api/favourites', (req,res) => {
+  const name = req.body.fav
+  const createdAt =Date.now();
+  const favourite = new Favourite({name,createdAt})
+  favourite.save();
+})
+
 
 
 app.listen(3000, () => {

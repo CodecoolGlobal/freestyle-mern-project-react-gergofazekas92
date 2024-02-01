@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import './App.css'
+import DisplayRecipe from './components/recipePage/DisplayRecipe'
 import RecipeList from './components/RecipeList'
 import ListComments from './components/ListComments';
 
@@ -8,7 +10,15 @@ function App() {
 
   return (
     <>
-      <ListComments/>
+    <header>
+      <div className='logo'>
+        <div className='foodlogo'>Food</div>
+        <div className='hublogo'>hub</div>
+      </div>
+    </header>
+    {page === "recipelist" && <RecipeList onChangePage={setPage} onChooseRecipe={setRecipeUrl}/> }
+    {page === "recipe" && <DisplayRecipe /> }
+    {/* {page === "shop" && <Shop /> } */}
     </>
   )
 }
