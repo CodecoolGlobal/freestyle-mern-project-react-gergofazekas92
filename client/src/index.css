@@ -7,7 +7,7 @@ body {
   background-color: black;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: white;
-  
+
 
   align-items: center;
   justify-content: center;
@@ -63,7 +63,7 @@ header {
   align-items: center;
 }
 
-.searchbar{
+.searchbar {
   background-color: transparent;
   border: none;
   height: 100%;
@@ -71,11 +71,11 @@ header {
   width: 100%;
 }
 
-.searchbar:focus{
+.searchbar:focus {
   outline: none;
 }
 
-button{
+button {
   font-size: 1.25rem;
   height: 80%;
   width: 70px;
@@ -84,19 +84,19 @@ button{
   border-radius: 10px;
 }
 
-button:hover{
+button:hover {
   background-color: orange;
 
 }
 
-.recipelist{
+.recipelist {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
 
-table{
+table {
   text-align: center;
   max-width: 200px;
   max-height: auto;
@@ -104,10 +104,11 @@ table{
   border-radius: 10px;
 }
 
-table:hover{
+table:hover {
   border-color: orange;
 }
 
 th img {
-  border-radius:  5px;
+  border-radius: 5px;
 }
+

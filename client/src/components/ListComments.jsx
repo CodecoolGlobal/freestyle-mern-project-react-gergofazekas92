@@ -56,8 +56,9 @@ function ListComments({ recipe }) {
       <form onSubmit={handleSubmit}>
         <input placeholder='Type your name...' type='text' value={name} onChange={e => handleNameChange(e.target.value)}></input><br />
         <input placeholder='Rate...' type='number' value={rating} onChange={e => handleRatingChange(e.target.value)} min='1' max='5'></input><br />
-        <input placeholder='Type your review...' type='text' value={review} onChange={e => handleReviewChange(e.target.value)}></input>
+        <textarea size='40' className='textBox' placeholder='Type your review...' type='text' value={review} onChange={e => handleReviewChange(e.target.value)}></textarea>
         <button>Submit</button>
+        
       </form>
       {reviews && reviews.map((review, index) => (
         <div key={index}>
