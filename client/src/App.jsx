@@ -16,7 +16,7 @@ function App() {
       </div>
     </header>
     {page === "recipelist" && <RecipeList onChangePage={setPage} onChooseRecipe={setRecipeUrl}/> }
-    {page === "recipe" && <DisplayRecipe /> }
+    {page === "recipe" && <DisplayRecipe onData={recipeUrl} onChangePage={setPage}/> }
     {/* {page === "shop" && <Shop /> } */}
     </>
   )
