@@ -19,13 +19,13 @@ function App() {
         <div className='logo'>
           <div className='foodlogo'>Food</div>
           <div className='hublogo'>hub</div>
-          <button onClick={()=> handleClick("favourites")}>❤️</button>
+          <button onClick={() => handleClick("favourites")}>❤️</button>
           <button onClick={() => handleClick("recipelist")}>Home</button>
         </div>
       </header>
       {page === "recipelist" && <RecipeList onChangePage={setPage} onChooseRecipe={setRecipeUrl} />}
       {page === "recipe" && <DisplayRecipe onData={recipeUrl} onChangePage={setPage} />}
-      {page === "favourites" && <Favourites  onChangePage={setPage} onChooseRecipe={setRecipeUrl} />}
+      {page === "favourites" && <Favourites onChangePage={setPage} onChooseRecipe={setRecipeUrl} />}
     </>
   )
 }
