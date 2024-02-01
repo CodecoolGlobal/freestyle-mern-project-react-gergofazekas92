@@ -44,11 +44,11 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
 
   async function handleClick (data) {
     const recipe = {fav: data.recipe.label}
-   await fetch("api/favourites", {
+  await fetch("api/favourites", {
     method:"POST",
     headers: {"content-type":"application/json"},
     body: JSON.stringify(recipe),
-   })
+  })
     console.log(data)
   }
 
@@ -56,10 +56,10 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
     <>
     <div className="main">
       <div>
-      <nav className="nav">
-        <input className="searchbar" type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="search ingredients..."/>
+      <div className="nav">
+        <input className="searchbar" type="search" value={input} onChange={(e) => setInput(e.target.value)} placeholder="search ingredients..."/>
         <button className="searchbutton" onClick={handleSearchClick}>🔎</button>
-      </nav>
+      </div>
     </div>
     
     <div className="recipelist">
@@ -80,9 +80,12 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
               </tr>
               <tr>
                 <td>{`${Math.ceil(recipe.recipe.calories)} kcal`}</td>
+              </tr>
+              <tr>
                 <td>{`${recipe.recipe.mealType}`}</td>
               </tr>
-              <button onClick={()=>handleClick(recipe)} >Add to favourites</button>
+                
+              <button onClick={()=>handleClick(recipe)} >❤️</button>
             </tbody>
           </table>
         ))}
