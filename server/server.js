@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import Review from './models/Review.js'
 import Favourite from './models/Favourite.js'
+import Recipe from './models/Recipe.js'
 
 mongoose.connect('mongodb+srv://konkolygergo:Wq9d3YoieOgGUxx8@cluster0.tcfrltf.mongodb.net/')
 
