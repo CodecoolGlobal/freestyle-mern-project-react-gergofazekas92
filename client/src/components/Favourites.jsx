@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 
-function Favourites() {
+function Favourites({ onChangePage, onChooseRecipe }) {
   const [recipes, setRecipes] = useState()
   const [editedName, setEditedName] = useState()
 
@@ -44,17 +44,22 @@ function Favourites() {
     }
   }
 
+  function handleChoose(uri){
+    console.log(uri);
+    onChooseRecipe(uri);
+    onChangePage("recipe");
+  }
+
 
   return (
     <div className="main">
-      
       <div className='recipelist'>
         {recipes && recipes.map((recipe) => (
           <table key={recipe._id}>
             <thead>
               <tr>
                 <th >
-                  <img src={`${recipe.img}`} ></img>
+                  <img src={`${recipe.img}`} onClick={() => handleChoose(recipe.uri)} ></img>
                 </th>
               </tr>
             </thead>

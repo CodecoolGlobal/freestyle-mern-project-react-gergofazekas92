@@ -9,8 +9,8 @@ function App() {
   const [page, setPage] = useState("recipelist");
   const [recipeUrl, setRecipeUrl] = useState("")
 
-  function handleClick() {
-    setPage("favourites")
+  function handleClick(data) {
+    setPage(data)
   }
 
   return (
@@ -19,12 +19,13 @@ function App() {
         <div className='logo'>
           <div className='foodlogo'>Food</div>
           <div className='hublogo'>hub</div>
-          <button onClick={handleClick}>❤️</button>
+          <button onClick={()=> handleClick("favourites")}>❤️</button>
+          <button onClick={() => handleClick("recipelist")}>Home</button>
         </div>
       </header>
       {page === "recipelist" && <RecipeList onChangePage={setPage} onChooseRecipe={setRecipeUrl} />}
       {page === "recipe" && <DisplayRecipe onData={recipeUrl} onChangePage={setPage} />}
-      {page === "favourites" && <Favourites onChangePage={setPage} />}
+      {page === "favourites" && <Favourites  onChangePage={setPage} onChooseRecipe={setRecipeUrl} />}
     </>
   )
 }
