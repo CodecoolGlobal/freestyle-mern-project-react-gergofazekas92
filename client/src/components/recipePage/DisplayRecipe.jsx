@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ListComments from "../ListComments";
 
 const apiURL = (uri) => `https://api.edamam.com/api/recipes/v2/by-uri?type=public&uri=${uri}&app_id=fd860c45&app_key=46f27aa35f7aacbf26c460a403b045e6`
 
@@ -56,11 +57,13 @@ function DisplayRecipe({ onData, onChangePage }) {
                             ))}
                         </div>
                         <button className="fullRecipe" onClick={() => window.location.href = recipe.recipe.url} >Check the full recipe</button>
+                        <button className="searchNew" onClick={() => onChangePage("recipelist")}>Search new recipe</button>
+                        <br/>
+                        <ListComments/>
                     </div>
                 </div>
             ))}
             </>
-            <button className="searchNew" onClick={() => onChangePage("recipelist")}>Search new recipe</button>
         </div>
     );
 }

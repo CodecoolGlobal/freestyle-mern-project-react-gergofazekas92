@@ -13,13 +13,15 @@ app.get('/api/reviews', async (req, res) => {
   res.send(reviews)
 })
 
-app.post('/api/reviews', (req, res) => {
+app.post('/api/reviews', async (req, res) => {
+  const recipeName = req.body.recipeName
   const name = req.body.name
   const comment = req.body.review
   const rating = req.body.rating
   const createdAt = Date.now()
-  const review = new Review({ name, comment, rating, createdAt })
-  review.save()
+  const review = new Review({ recipeName, name, comment, rating, createdAt })
+  await review.save()
+  res.end()
 })
 
 app.get("/api/favourites", async (req, res) => {
