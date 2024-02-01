@@ -112,3 +112,60 @@ th img {
   border-radius: 5px;
 }
 
+.textBox {
+  width: 400px;
+  height: 50px;
+  border-radius: 7px;
+}
+
+.ratingBox {
+  width: 50px;
+
+}
+
+input {
+  border-radius: 7px;
+}
+
+.form {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: left;
+  border-radius: 10px;
+
+}
+
+.comment {
+  border: 1px solid orange;
+  border-radius: 10px;
+  margin: 5px;
+  max-width: 400px;
+  text-align: left;
+}
+
+.commentName {
+  text-align: left;
+  padding: 7px;
+  font-style: bold;
+}
+
+.commentContent {
+  font-style: italic;
+  text-align: left;
+  padding-top: 5px;
+  padding-left: 7px;
+  max-width: 95%;
+  word-wrap: break-word;
+  font-weight: 200;
+  padding: 7px;
+}
+
+.commentRate {
+  display: inline-block;
+  padding: 7px;
+}
+
+.commentDate {
+  float: right;
+  text-align: right;
+  padding: 7px;
+}

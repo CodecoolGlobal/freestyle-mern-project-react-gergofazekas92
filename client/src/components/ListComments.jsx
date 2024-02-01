@@ -49,21 +49,27 @@ function ListComments({ recipe }) {
       body: JSON.stringify(body)
     })
     await fetchData()
+    setName('')
+    setRating('')
+    setReview('')
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className='form' onSubmit={handleSubmit}>
         <input placeholder='Type your name...' type='text' value={name} onChange={e => handleNameChange(e.target.value)}></input><br />
-        <input placeholder='Rate...' type='number' value={rating} onChange={e => handleRatingChange(e.target.value)} min='1' max='5'></input><br />
-        <textarea size='40' className='textBox' placeholder='Type your review...' type='text' value={review} onChange={e => handleReviewChange(e.target.value)}></textarea>
+        <input className='ratingBox' placeholder='Rate...' type='number' value={rating} onChange={e => handleRatingChange(e.target.value)} min='1' max='5'></input><br />
+        <textarea size='40' className='textBox' placeholder='Type your comment...' type='text' value={review} onChange={e => handleReviewChange(e.target.value)}></textarea>
+        <br/>
         <button>Submit</button>
         
       </form>
       {reviews && reviews.map((review, index) => (
-        <div key={index}>
-          <div>Name: {review.name} - Comment: {review.comment} - Rating: {review.rating}</div>
-          <div>Created: {review.createdAt.substring(0, 10)}</div>
+        <div className='comment' key={index}>
+          <div className='commentName'>{review.name}</div>
+          <div className='commentContent'>"{review.comment}"</div>
+          <div className='commentRate'>Rating: {review.rating}</div>
+          <div className='commentDate'>{review.createdAt.substring(0, 10)}</div>
         </div>
       ))}
     </div>
