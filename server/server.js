@@ -33,8 +33,12 @@ app.get("/api/favourites", async (req, res) => {
 
 app.post('/api/favourites', (req, res) => {
   const name = req.body.fav
+  const img = req.body.img
+  const cal = req.body.cal
+  const type = req.body.type
+  const uri = req.body.uri
   const createdAt = Date.now();
-  const favourite = new Favourite({ name, createdAt })
+  const favourite = new Favourite({ name, img, cal, type, uri, createdAt })
   favourite.save();
 })
 

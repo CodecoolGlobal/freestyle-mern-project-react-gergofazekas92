@@ -51,6 +51,9 @@ const handleDelete = async (id) => {
     {recipes && recipes.map((recipe) => (
       <div key={recipe._id}>
       <h3 >{recipe.name}</h3>
+      <img src={`${recipe.img}`}></img>
+      <h3 >{Math.ceil(recipe.cal)}</h3>
+      <h3 >{recipe.type}</h3>
       <button onClick={() => handleDelete(recipe._id)}>Delete</button>
       <button onClick={() => handleUpdate(recipe._id)}>Edit</button>
       </div>
