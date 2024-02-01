@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-function Favourites() {
+function Favourites({ onChangePage, onChooseRecipe }) {
   const [recipes, setRecipes] = useState()
-  const [editedName, setEditedName] = useState()
-
-
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -19,19 +16,6 @@ function Favourites() {
     }; fetchRecipes();
   }, []);
 
-  // const handleUpdate = async (id) => {
-  //   try {
-  //     await fetch(`api/favourites/${id}`, {
-  //     method:"PUT",
-  //     headers: {"Content-Type": "application/json",},
-  //     body: JSON.stringify({ name: editedName }),
-  //   })
-  //   } catch (error) {
-
-  //   }
-
-  // }
-
   const handleDelete = async (id) => {
     try {
       await fetch(`api/favourites/${id}`, {
@@ -44,17 +28,21 @@ function Favourites() {
     }
   }
 
+  function handleChoose(uri) {
+    console.log(uri);
+    onChooseRecipe(uri);
+    onChangePage("recipe");
+  }
 
   return (
     <div className="main">
-      
       <div className='recipelist'>
         {recipes && recipes.map((recipe) => (
           <table key={recipe._id}>
             <thead>
               <tr>
                 <th >
-                  <img src={`${recipe.img}`} ></img>
+                  <img src={`${recipe.img}`} onClick={() => handleChoose(recipe.uri)} ></img>
                 </th>
               </tr>
             </thead>
@@ -75,7 +63,6 @@ function Favourites() {
       </div>
     </div>
   )
-
 }
 
 export default Favourites
