@@ -2,8 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import DisplayRecipe from './components/recipePage/DisplayRecipe'
 import RecipeList from './components/RecipeList'
-import ListComments from './components/ListComments';
-import Favourites from './components/Favourites';
+
 
 function App() {
   const [page, setPage] = useState("recipelist");
@@ -11,7 +10,15 @@ function App() {
 
   return (
     <>
-    <Favourites/>
+    <header>
+      <div className='logo'>
+        <div className='foodlogo'>Food</div>
+        <div className='hublogo'>hub</div>
+      </div>
+    </header>
+    {page === "recipelist" && <RecipeList onChangePage={setPage} onChooseRecipe={setRecipeUrl}/> }
+    {page === "recipe" && <DisplayRecipe onData={recipeUrl} onChangePage={setPage}/> }
+    {/* {page === "shop" && <Shop /> } */}
     </>
   )
 }
