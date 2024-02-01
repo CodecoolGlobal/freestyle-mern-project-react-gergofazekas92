@@ -31,7 +31,7 @@ app.get("/api/favourites", async (req, res) => {
   }
 });
 
-app.post('/api/favourites', (req, res) => {
+app.post('/api/favourites', async (req, res) => {
   const name = req.body.fav
   const img = req.body.img
   const cal = req.body.cal
@@ -39,7 +39,8 @@ app.post('/api/favourites', (req, res) => {
   const uri = req.body.uri
   const createdAt = Date.now();
   const favourite = new Favourite({ name, img, cal, type, uri, createdAt })
-  favourite.save();
+  await favourite.save();
+  res.end();
 })
 
 app.put('/api/favourites/:id', async (req, res) => {
@@ -67,6 +68,7 @@ app.delete('/api/favourites/:id', async (req, res) => {
   } catch (error) {
     console.error("Error deleting favourites", error)
   }
+  res.end();
 });
 
 
