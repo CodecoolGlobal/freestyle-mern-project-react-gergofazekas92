@@ -59,8 +59,6 @@ function DisplayRecipe({ onData, onChangePage }) {
                         </div>
                         <button className="fullRecipe" onClick={() => window.location.href = recipe.recipe.url} >Check the full recipe</button>
                         <button className="searchNew" onClick={() => onChangePage("recipelist")}>Search new recipe</button>
-                        {/* <br/>
-                        <ListComments/> */}
                     </div>
                 </div>
             ))}
