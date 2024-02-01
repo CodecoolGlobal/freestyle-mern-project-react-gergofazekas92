@@ -21,10 +21,16 @@ header {
   width: 100%;
 }
 
+.head{
+  display: flex;
+  justify-content: space-between;
+}
+
 .logo {
   display: flex;
   margin: 20px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .foodlogo {
@@ -40,6 +46,17 @@ header {
   font-size: 2.5rem;
   background-color: orange;
   border-radius: 5px;
+}
+
+.favourites{
+  margin: 20px;
+}
+
+.favouritesbtn{
+  font-size: 2rem;
+  padding: 5px;
+  height: 100%;
+  background: white;
 }
 
 .main {
@@ -76,6 +93,7 @@ header {
 }
 
 button {
+  cursor: pointer;
   font-size: 1.25rem;
   height: 80%;
   width: 70px;
@@ -110,6 +128,7 @@ table:hover {
 
 th img {
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .textBox {
@@ -134,38 +153,10 @@ input {
 
 }
 
-.comment {
-  border: 1px solid orange;
-  border-radius: 10px;
-  margin: 5px;
-  max-width: 400px;
-  text-align: left;
-}
 
-.commentName {
-  text-align: left;
-  padding: 7px;
-  font-style: bold;
-}
 
-.commentContent {
-  font-style: italic;
-  text-align: left;
-  padding-top: 5px;
-  padding-left: 7px;
-  max-width: 95%;
-  word-wrap: break-word;
-  font-weight: 200;
-  padding: 7px;
-}
-
-.commentRate {
-  display: inline-block;
-  padding: 7px;
-}
-
-.commentDate {
-  float: right;
-  text-align: right;
-  padding: 7px;
+.form{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

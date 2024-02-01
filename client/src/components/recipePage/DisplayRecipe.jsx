@@ -23,8 +23,15 @@ function DisplayRecipe({ onData, onChangePage }) {
     }, [])
     console.log(data)
 
-    async function handleClick(data) {
-        const recipe = { fav: data.recipe.label }
+    async function handleClick(data, e) {
+        const recipe = {
+            fav: data.recipe.label,
+            img: data.recipe.images.SMALL.url,
+            cal: data.recipe.calories,
+            type: data.recipe.mealType,
+            uri: data.recipe.uri
+        }
+        e.target.hidden = true;
         await fetch("api/favourites", {
             method: "POST",
             headers: { "content-type": "application/json" },
@@ -35,44 +42,44 @@ function DisplayRecipe({ onData, onChangePage }) {
 
     return (
         <div>
-        <div className="displayRecipe">
-            <>{data && data.map((recipe, index) => (
-                <div key={index} className="container">
-                    <div className="container-head">
-                        <div className="container-head-picture">
-                            <img src={recipe.recipe.images.REGULAR.url}></img>
+            <div className="displayRecipe">
+                <>{data && data.map((recipe, index) => (
+                    <div key={index} className="container">
+                        <div className="container-head">
+                            <div className="container-head-picture">
+                                <img className="recipepageimg" src={recipe.recipe.images.REGULAR.url}></img>
+                            </div>
+                        </div>
+                        <div className="container-body">
+                            <div className="conatiner-head-info">
+                                <h1>{recipe.recipe.label}</h1>
+                                <button onClick={(e) => handleClick(recipe, e)} >❤️</button>
+                                <ul>Ingredients</ul>
+                                {recipe.recipe.ingredientLines.map((ingredient, index) => (
+                                    <li key={index}>{ingredient}</li>
+                                ))}
+
+                                {recipe.recipe.dietLabels.map((label, index) => (
+                                    <p key={index}>{label}</p>
+                                ))}
+
+                                <button className="fullRecipe" onClick={() => window.location.href = recipe.recipe.url} >Check the full recipe</button> <br />
+                                <button className="searchNew" onClick={() => onChangePage("recipelist")}>Search new recipe</button>
+                            </div>
                         </div>
                     </div>
-                    <div className="container-body">
-                        <div className="conatiner-head-info">
-                            <h1>{recipe.recipe.label}</h1>
-                            <button onClick={() => handleClick(recipe)} >❤️</button>
-                            <ul>Ingredients</ul>
-                            {recipe.recipe.ingredientLines.map((ingredient, index) => (
-                                <li key={index}>{ingredient}</li>
-                            ))}
-                        </div>
-                        <div className="badge">
-                            {recipe.recipe.dietLabels.map((label, index) => (
-                                <p key={index}>{label}</p>
-                            ))}
-                        </div>
-                        <button className="fullRecipe" onClick={() => window.location.href = recipe.recipe.url} >Check the full recipe</button>
-                        <button className="searchNew" onClick={() => onChangePage("recipelist")}>Search new recipe</button>
-                    </div>
-                </div>
-            ))}
-            </>
+                ))}
+                </>
             </div>
-            <div className="comments">
+            <div className="commentslist">
                 <>{data && data.map((recipe, index) => (
                     <div key={index}>
                         <ListComments recipe={recipe.recipe.label} />
                     </div>
                 ))}</>
-             </div> 
-             </div>
-            );
+            </div>
+        </div>
+    );
 }
 
 
