@@ -1,4 +1,39 @@
+
 div.container{
     display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 50px
 }
 
+div.container-body{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+
+}
+
+
+div.displayRecipe{
+    text-align: center;
+}
+
+ul{
+    padding:0;
+}
+
+li{
+    list-style-type: none;
+}
+
+button.fullRecipe{
+    width: max-content;
+  
+
+}
+
+button.searchNew{
+    width: max-content;
+    margin-top: 20px;
+}
