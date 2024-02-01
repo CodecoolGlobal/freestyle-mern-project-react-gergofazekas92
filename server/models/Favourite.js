@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const {Schema,model} = mongoose;
 
 const favouritesSchema = new Schema ({
-  data: Schema.Types.Object,
+  name: String,
   createdAt: Date
 })
 
