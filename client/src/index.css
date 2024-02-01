@@ -6,11 +6,12 @@ body {
   min-height: 100vh;
   background-color: black;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: white
+  color: white;
+  
 }
 
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -38,6 +39,8 @@ header {
 }
 
 .main {
+  justify-content: center;
+  text-align: center;
   margin-top: 70px;
   display: flex;
   flex-direction: column;
@@ -68,7 +71,7 @@ header {
   outline: none;
 }
 
-.searchbutton{
+button{
   height: 80%;
   width: 70px;
   border: none;
@@ -76,7 +79,7 @@ header {
   border-radius: 10px;
 }
 
-.searchbutton:hover{
+button:hover{
   background-color: orange;
 
 }
@@ -86,4 +89,20 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+}
+
+table{
+  text-align: center;
+  max-width: 200px;
+  max-height: auto;
+  border: 5px solid;
+  border-radius: 10px;
+}
+
+table:hover{
+  border-color: orange;
+}
+
+th img {
+  border-radius:  5px;
 }
