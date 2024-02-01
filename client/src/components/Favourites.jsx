@@ -5,6 +5,7 @@ const [recipes,setRecipes] = useState()
 const [editedName,setEditedName] = useState()
 
 
+
 useEffect (() => {
 const fetchRecipes = async () => {
   try {
@@ -38,7 +39,6 @@ const handleDelete = async (id) => {
     });
     const updatedRecipes = recipes.filter((recipe) => recipe._id !== id);
     setRecipes(updatedRecipes);
-
   } catch (error) {
     console.error("Error deleting favourite recipe",error)
   }
@@ -47,14 +47,33 @@ const handleDelete = async (id) => {
 
   return (
     <div>
-      <h1>Favourites</h1>
+       <h1>Favourites</h1>
+   
+    <div className='recipelist'>
     {recipes && recipes.map((recipe) => (
-      <div key={recipe._id}>
-      <h3 >{recipe.name}</h3>
-      <button onClick={() => handleDelete(recipe._id)}>Delete</button>
-      <button onClick={() => handleUpdate(recipe._id)}>Edit</button>
-      </div>
+      <table key={recipe._id}>
+      <thead>
+        <tr>
+        <th >
+          <img src={`${recipe.img}`} ></img>
+        </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>{`${recipe.name}`}</th>
+        </tr>
+        <tr>
+          <td>{`${Math.ceil(recipe.cal)} kcal`}</td>
+        </tr>
+        <tr>
+          <td>{`${recipe.type}`}</td>
+        </tr>
+        <button onClick={()=>handleDelete(recipe._id)}>Delete</button>
+        </tbody>
+          </table>
     ))}
+     </div>
     </div>
   )
 

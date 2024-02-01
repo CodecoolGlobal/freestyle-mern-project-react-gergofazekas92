@@ -23,6 +23,16 @@ function DisplayRecipe({ onData, onChangePage }) {
     }, [])
     console.log(data)
 
+    async function handleClick (data) {
+        const recipe = {fav: data.recipe.label}
+      await fetch("api/favourites", {
+        method:"POST",
+        headers: {"content-type":"application/json"},
+        body: JSON.stringify(recipe),
+      })
+        console.log(data)
+      }
+
     return (
         <div>
             <>{data && data.map((recipe, index) => (
@@ -33,6 +43,7 @@ function DisplayRecipe({ onData, onChangePage }) {
                         </div>
                         <div className="conatiner-head-info">
                             <h1>{recipe.recipe.label}</h1>
+                            <button onClick={()=>handleClick(recipe)} >❤️</button>
                             <ul>Ingredients</ul>
                             {recipe.recipe.ingredientLines.map((ingredient, index) => (
                                 <li key={index}>{ingredient}</li>
