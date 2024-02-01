@@ -53,7 +53,7 @@ function DisplayRecipe({ onData, onChangePage }) {
                 </div>
             ))}
             </>
-                <button onClick={() => onChangePage("recipelist")}>Back</button>
+                <button onClick={() => onChangePage("recipelist")}>Search new recipe</button>
             </div>
     );
 }
