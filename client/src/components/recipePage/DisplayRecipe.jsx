@@ -23,39 +23,45 @@ function DisplayRecipe({ onData, onChangePage }) {
     }, [])
     console.log(data)
 
+    async function handleClick(data) {
+        const recipe = { fav: data.recipe.label }
+        await fetch("api/favourites", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(recipe),
+        })
+        console.log(data)
+    }
+
     return (
-        <div>
+        <div className="displayRecipe">
             <>{data && data.map((recipe, index) => (
                 <div key={index} className="container">
                     <div className="container-head">
                         <div className="container-head-picture">
                             <img src={recipe.recipe.images.REGULAR.url}></img>
                         </div>
+                    </div>
+                    <div className="container-body">
                         <div className="conatiner-head-info">
                             <h1>{recipe.recipe.label}</h1>
+                            <button onClick={() => handleClick(recipe)} >❤️</button>
                             <ul>Ingredients</ul>
                             {recipe.recipe.ingredientLines.map((ingredient, index) => (
                                 <li key={index}>{ingredient}</li>
                             ))}
                         </div>
-                    </div>
-                    <div className="container-body">
                         <div className="badge">
                             {recipe.recipe.dietLabels.map((label, index) => (
                                 <p key={index}>{label}</p>
                             ))}
                         </div>
-                        <div className="nutritions">
-                        </div>
-                        <div>
-                            <button onClick={() => window.location.href = recipe.recipe.url} >Check the full recipe</button>
-                            <button onClick={() => onChangePage("recipelist")}>Search new recipe</button>
-                            <ListComments recipe={recipe.recipe.label} />
-                        </div>
+                        <button className="fullRecipe" onClick={() => window.location.href = recipe.recipe.url} >Check the full recipe</button>
                     </div>
                 </div>
             ))}
             </>
+            <button className="searchNew" onClick={() => onChangePage("recipelist")}>Search new recipe</button>
         </div>
     );
 }
