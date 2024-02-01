@@ -43,7 +43,13 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
   }
 
   async function handleClick (data) {
-    const recipe = {fav: data.recipe.label}
+    const recipe = {
+      fav: data.recipe.label,
+      img: data.recipe.images.SMALL.url,
+      cal: data.recipe.calories,
+      type: data.recipe.mealType,
+      uri: data.recipe.uri
+    }
   await fetch("api/favourites", {
     method:"POST",
     headers: {"content-type":"application/json"},
