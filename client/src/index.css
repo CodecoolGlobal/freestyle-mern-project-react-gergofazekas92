@@ -1,16 +1,21 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+
   min-width: 320px;
   min-height: 100vh;
   background-color: black;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: white
+  color: white;
+  
+
+  align-items: center;
+  justify-content: center;
+
 }
 
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -25,20 +30,22 @@ header {
 .foodlogo {
   padding: 5px;
   background-color: black;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   color: white;
 }
 
 .hublogo {
   padding: 5px;
   color: black;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   background-color: orange;
   border-radius: 5px;
 }
 
 .main {
-  margin-top: 70px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,7 +75,8 @@ header {
   outline: none;
 }
 
-.searchbutton{
+button{
+  font-size: 1.25rem;
   height: 80%;
   width: 70px;
   border: none;
@@ -76,7 +84,7 @@ header {
   border-radius: 10px;
 }
 
-.searchbutton:hover{
+button:hover{
   background-color: orange;
 
 }
@@ -86,4 +94,20 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+}
+
+table{
+  text-align: center;
+  max-width: 200px;
+  max-height: auto;
+  border: 5px solid;
+  border-radius: 10px;
+}
+
+table:hover{
+  border-color: orange;
+}
+
+th img {
+  border-radius:  5px;
 }
