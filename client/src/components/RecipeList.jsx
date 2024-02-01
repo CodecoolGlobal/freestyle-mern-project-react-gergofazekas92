@@ -56,10 +56,10 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
     <>
     <div className="main">
       <div>
-      <nav className="nav">
-        <input className="searchbar" type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="search ingredients..."/>
+      <div className="nav">
+        <input className="searchbar" type="search" value={input} onChange={(e) => setInput(e.target.value)} placeholder="search ingredients..."/>
         <button className="searchbutton" onClick={handleSearchClick}>🔎</button>
-      </nav>
+      </div>
     </div>
     
     <div className="recipelist">
