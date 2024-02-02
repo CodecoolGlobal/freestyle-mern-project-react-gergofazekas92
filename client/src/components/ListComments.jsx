@@ -56,18 +56,19 @@ function ListComments({ recipe }) {
 
   return (
     <div>
-      <form className='form' onSubmit={handleSubmit}>
-        <input placeholder='Type your name...' type='text' value={name} onChange={e => handleNameChange(e.target.value)}></input><br />
-        <input className='ratingBox' placeholder='Rate...' type='number' value={rating} onChange={e => handleRatingChange(e.target.value)} min='1' max='5'></input><br />
-        <textarea size='40' className='textBox' placeholder='Type your comment...' type='text' value={review} onChange={e => handleReviewChange(e.target.value)}></textarea>
-        <br/>
-        <button>Submit</button>
-        
-      </form>
+      <div className='formdiv'>
+        <form className='form' onSubmit={handleSubmit}>
+          <input className='ratingBox' placeholder='Rate...' type='number' value={rating} onChange={e => handleRatingChange(e.target.value)} min='1' max='5'></input>
+          <input className='nameBox' placeholder='Type your name...' type='text' value={name} onChange={e => handleNameChange(e.target.value)}></input>
+          <input className='textBox' placeholder='Type your comment...' type='text' value={review} onChange={e => handleReviewChange(e.target.value)}></input>
+          <button className='commentBtn'>Submit</button>
+        </form>
+      </div>
+      
       {reviews && reviews.map((review, index) => (
         <div className='comment' key={index}>
           <div className='commentName'>{review.name}</div>
-          <div className='commentContent'>"{review.comment}"</div>
+          <div className='commentContent'>{review.comment}</div>
           <div className='commentRate'>Rating: {review.rating}</div>
           <div className='commentDate'>{review.createdAt.substring(0, 10)}</div>
         </div>

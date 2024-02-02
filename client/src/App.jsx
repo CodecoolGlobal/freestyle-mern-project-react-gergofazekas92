@@ -16,11 +16,14 @@ function App() {
   return (
     <>
       <header>
-        <div className='logo'>
-          <div className='foodlogo'>Food</div>
-          <div className='hublogo'>hub</div>
-          <button onClick={() => handleClick("favourites")}>❤️</button>
-          <button onClick={() => handleClick("recipelist")}>Home</button>
+        <div className='head'>
+          <div className='logo' onClick={() => handleClick("recipelist")}>
+            <div className='foodlogo'>Food</div>
+            <div className='hublogo'>hub</div>
+          </div>
+          <div className='favourites'>
+            <button  className='favouritesbtn' onClick={() => handleClick("favourites")}>❤️</button>
+          </div>
         </div>
       </header>
       {page === "recipelist" && <RecipeList onChangePage={setPage} onChooseRecipe={setRecipeUrl} />}

@@ -90,8 +90,9 @@ function RecipeList({ onChangePage, onChooseRecipe }) {
               <tr>
                 <td>{`${recipe.recipe.mealType}`}</td>
               </tr>
-                
-              <button onClick={()=>handleClick(recipe)} >❤️</button>
+              <tr>
+                <button onClick={()=>handleClick(recipe)} >❤️</button>
+              </tr>
             </tbody>
           </table>
         ))}
