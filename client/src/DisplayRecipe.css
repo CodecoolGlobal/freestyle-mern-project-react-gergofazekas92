@@ -78,6 +78,10 @@ button.searchNew {
     font-weight: bold;
 }
 
+.ratingBox{
+    width: 60px;
+}
+
 .nameBox {
     width: 400px;
 }
