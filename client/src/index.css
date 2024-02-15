@@ -63,6 +63,7 @@ header {
   justify-content: center;
   text-align: center;
   margin-top: 100px;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,10 +138,6 @@ th img {
   border-radius: 7px;
 }
 
-.ratingBox {
-  width: 50px;
-
-}
 
 input {
   border-radius: 7px;
