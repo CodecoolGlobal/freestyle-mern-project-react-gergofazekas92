@@ -1,3 +1,6 @@
+[![Contributors][contributors-shield]][https://github.com/CodecoolGlobal/freestyle-mern-project-react-gergofazekas92/graphs/contributors]
+
+
 # FoodHub Recipe Site
 
 ## Project Description
