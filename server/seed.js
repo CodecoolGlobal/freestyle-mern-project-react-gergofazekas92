@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import Recipe from "./models/Recipe.js"
+import API_KEY from "../client/config.js";
 
 async function fillTheDB(data){
   const name = data.recipe.label;
@@ -12,7 +13,7 @@ async function fillTheDB(data){
   await recipe.save();
 }
 
-const url = `https://api.edamam.com/api/recipes/v2?type=public&q=carrot&app_id=88394fd1&app_key=83cac76653be41a30be1b45298824ffd	`
+const url = `https://api.edamam.com/api/recipes/v2?type=public&q=carrot&app_id=88394fd1&app_key=${API_KEY}	`
 
   async function fetchRecipes(url) {
     try {
