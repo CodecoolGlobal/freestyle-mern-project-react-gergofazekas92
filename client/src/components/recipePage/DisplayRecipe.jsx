@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import ListComments from "../ListComments";
+import API_KEY from '../../../config'
 
-const apiURL = (uri) => `https://api.edamam.com/api/recipes/v2/by-uri?type=public&uri=${uri}&app_id=fd860c45&app_key=46f27aa35f7aacbf26c460a403b045e6`
+const apiURL = (uri) => `https://api.edamam.com/api/recipes/v2/by-uri?type=public&uri=${uri}&app_id=fd860c45&app_key=${API_KEY}`
 
 function DisplayRecipe({ onData, onChangePage }) {
     const [data, setData] = useState([])

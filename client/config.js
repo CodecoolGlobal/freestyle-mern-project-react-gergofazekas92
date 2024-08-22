@@ -1,0 +1,4 @@
+const API_KEY = 'ENTER YOUR API';
+const MONGOOSE_URL = 'ENTER YOUR API';
+
+export default API_KEY; MONGOOSE_URL;

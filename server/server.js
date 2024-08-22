@@ -3,8 +3,9 @@ import mongoose from 'mongoose'
 import Review from './models/Review.js'
 import Favourite from './models/Favourite.js'
 import Recipe from './models/Recipe.js'
+import MONGOOSE_URL from "../client/config.js"
 
-mongoose.connect('mongodb+srv://konkolygergo:Wq9d3YoieOgGUxx8@cluster0.tcfrltf.mongodb.net/')
+mongoose.connect(MONGOOSE_URL)
 
 const app = express()
 app.use(express.json())
